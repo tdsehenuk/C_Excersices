@@ -17,11 +17,17 @@ kr-c-exercises/
   
   chapter1_basics/
   ├── chapter2_types_operators/
+  
   ├── chapter3_control_flow/
+  
   ├── chapter4_functions/
+  
   ├── chapter5_pointers_arrays/
+  
   ├── chapter6_structures/
+  
   ├── chapter7_input_output/
+  
   ├── chapter8_unix/
 Each file is named like `ex1_1_hello_world.c` to reflect the chapter and exercise number.
 
