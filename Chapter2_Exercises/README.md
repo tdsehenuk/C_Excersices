@@ -66,3 +66,10 @@ These results show compliance with requirements SR-2.1-01 - SR-2.1-10 as verifie
 - The program’s output consists of printed text to the console; all strings were verified for accuracy and clarity.
 - Unit level testing focused on verifying each variable’s computed min/max value as per requirements.
 - System testing involved running the complete executable on the target platform and verifying end-to-end correctness.
+
+5. Code/Requirement Differential and Regression Analysis
+- The implemented code fully satisfies the requirements SR-2.1-01 through SR-2.1-10 without introducing regressions.
+- Since this is a new implementation, regression testing focused on ensuring correctness of all test cases before and after any code adjustments .
+- Future modifications will include rerunning the full tests to prevent regressions.
+
+
