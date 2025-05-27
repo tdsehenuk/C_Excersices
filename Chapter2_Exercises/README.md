@@ -35,16 +35,16 @@ The following program shall no usage of <limits.h> in code.
 2. Test Procedure Generation and Execution 
 
 Test Case ID  Related Req(s)  Test Description                                              Expected Result                                Actual Result 
-TC-2.1-01     SR-2.1-01       Compute min and max of `signed char`                          min = -128, max = 127                          TBD            
-TC-2.1-02     SR-2.1-02       Compute min and max of `signed short`                         min = -32,768, max = 32,767                    TBD            
-TC-2.1-03     SR-2.1-03       Compute min and max of `signed int`                           min = -2,147,483,648, max = 2,147,483,647      TBD            
-TC-2.1-04     SR-2.1-04       Compute min and max of `signed long`                          Platform-dependent (e.g. 32-bit or 64-bit)     TBD            
-TC-2.1-05     SR-2.1-05       Compute max of `unsigned char`                                max = 255                                      TBD            
-TC-2.1-06     SR-2.1-06       Compute max of `unsigned short`                               max = 65,535                                   TBD            
-TC-2.1-07     SR-2.1-07       Compute max of `unsigned int`                                 max = 4,294,967,295 (on 32-bit systems)        TBD            
-TC-2.1-08     SR-2.1-08       Compute max of `unsigned long`                                Platform-dependent (e.g. 2^32 or 2^64 - 1)     TBD            
-TC-2.1-09     SR-2.1-09       Verify output is clearly labeled and human-readable           Output includes labels for each type/value     TBD            
-TC-2.1-10     All             Confirm that `<limits.h>` is not used in the implementation   No inclusion of `<limits.h>` in source code    TBD            
+TC-2.1-01     SR-2.1-01       Compute min and max of `signed char`                          min = -128, max = 127                          min: -128 max: 127          
+TC-2.1-02     SR-2.1-02       Compute min and max of `signed short`                         min = -32,768, max = 32,767                    min: -32768 max: 32767
+TC-2.1-03     SR-2.1-03       Compute min and max of `signed int`                           min = -2,147,483,648, max = 2,147,483,647      min: -2147483648 max: 2147483647
+TC-2.1-04     SR-2.1-04       Compute min and max of `signed long`                          Platform-dependent (e.g. 32-bit or 64-bit)     min: -2147483648 max: 2147483647
+TC-2.1-05     SR-2.1-05       Compute max of `unsigned char`                                max = 255                                      max: 255             
+TC-2.1-06     SR-2.1-06       Compute max of `unsigned short`                               max = 65,535                                   max: 65535             
+TC-2.1-07     SR-2.1-07       Compute max of `unsigned int`                                 max = 4,294,967,295 (on 32-bit systems)        max: 4294967295        
+TC-2.1-08     SR-2.1-08       Compute max of `unsigned long`                                Platform-dependent (e.g. 2^32 or 2^64 - 1)     max: 4294967295 
+TC-2.1-09     SR-2.1-09       Verify output is clearly labeled and human-readable           Output includes labels for each type/value     passed
+TC-2.1-10     All             Confirm that `<limits.h>` is not used in the implementation   No inclusion of `<limits.h>` in source code    passed           
 
 To execute the tests and verify ouput:
 
@@ -54,4 +54,9 @@ gcc .\ex2_1_signed_unsigned.c -o .\ex2_1_signed_unsigned.exe
 Inspect test_output.log and compare values to the expected result column. 
 Confirm that <limits.h> isn't used in the code. 
 
-3.
+3. Unit Level Testing and Execution Results
+All test cases from Section 2 were executed on 64-bit Windows 11 using GCC 15.1.0
+On this platform long and int are both 32 bits so their min/max values are equal. 
+The output log was inspected and values mostly matched the expected results exactly, confirming correct computation for the data types.
+No use of <limits.h> was found in the source code as confirmed by code review.
+
