@@ -55,8 +55,14 @@ Inspect test_output.log and compare values to the expected result column.
 Confirm that <limits.h> isn't used in the code. 
 
 3. Unit Level Testing and Execution Results
-All test cases from Section 2 were executed on 64-bit Windows 11 using GCC 15.1.0
+All test cases from Section 2 were executed on 64-bit Windows 11 using GCC 15.1.0 on Ryzen 7 5800X CPU.
 On this platform long and int are both 32 bits so their min/max values are equal. 
 The output log was inspected and values mostly matched the expected results exactly, confirming correct computation for the data types.
 No use of <limits.h> was found in the source code as confirmed by code review.
+These results show compliance with requirements SR-2.1-01 - SR-2.1-10 as verified by test cases TC-2.1-01 to TC-2.1-10 by Thomas Sehenuk
 
+4. Graphics, I/O, Unit Level, and System Testing
+- No graphical interface exists; therefore, no graphics testing was applicable.
+- The program’s output consists of printed text to the console; all strings were verified for accuracy and clarity.
+- Unit level testing focused on verifying each variable’s computed min/max value as per requirements.
+- System testing involved running the complete executable on the target platform and verifying end-to-end correctness.
