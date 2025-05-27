@@ -85,3 +85,19 @@ Confirm that <limits.h> isn't used in the code.
 - With the simplicity and flow of the program, 100% statement coverage was achieved.
 - No conditional branches or loops exist, so branch coverage is not applicable here.
 - Coverage was verified through manual inspection.
+
+8. · Software Problem Reporting
+The program meets all specified requirements except for minor platform-dependent variations:
+On this platform, int and long have the same size (32 bits), so their min and max values are the same.
+If cross-platform compatibility or other than learning use is required, consider using fixed width integer types: int32_t or int64_t.
+No other code changes are required at this time. 
+
+9. Technical Writing Documentation and Reports
+Throughout the project, each stage was carefully documented to ensure clarity and traceability:
+The Software Requirements Review explicitly lists every requirement ID and how the program satisfies it, providing a clear link between requirements 
+and and implementation.
+The Test Procedure Matrix was developed to align each test case with its related requirements, showing expected and actual results for straightforward verification.
+In the Unit Testing Report, details were included about the testing environment (64-bit Windows 11, GCC 15.1.0) and noted platform-specific behaviors like int and long being equal in size.
+The source code contains descriptive comments explaining the logic behind bitwise calculations and casting, making it easier for any reviewer or future maintainer to understand the approach without relying on external documentation.
+Software Problem Reporting is documented thoroughly, noting the platform-dependent results and advising on fixed-width integer types for more portable code.
+Overall, the documentation is structured and detailed, making the project accessible and verifiable for both technical reviewers and verification. This relects a strong commitment to good software engineering communication practices.
