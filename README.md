@@ -13,7 +13,7 @@ apply a real-world software verification process to them.
 The exercises are organized by chapter:
 kr-c-exercises/
    - ├── chapter1_basics/
-   - ├── chapter2_types_operators/ (2.1 contains software verification process)
+   - ├── chapter2_types_operators/ (Exercise_2.1 contains software verification process)
    - ├── chapter3_control_flow/
    - ├── chapter4_functions/
    - ├── chapter5_pointers_arrays/
