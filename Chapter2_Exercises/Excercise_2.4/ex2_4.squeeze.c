@@ -21,19 +21,27 @@ int main() {
     return 0;
 }
 
-void squeeze2(char s1[], char s2[]) {
-    int i = 0; 
-    int j = 0;
+ void squeeze2(char s1[], char s2[]) {
+    int i;
+    int j;
+    int k;
 
-    while(s1[i] != '\n') { 
-        if(s1[i] == s2[j]) {
-            i
+    for(int i = 0; s[i] != '\0'; i++) {
+        for (int j = 0; s[j] != '\0'; j++) {
+            if(s1[i] != s2[j]) {
+                
+            }
         }
+    }
 
-}
 
- void squeeze(char s[], int c)
- {
+
+ }
+
+
+
+
+ void squeeze(char s[], int c) {
     int i, j;
     for (i = j = 0; s[i] != '\0'; i++)
     if (s[i] != c)
