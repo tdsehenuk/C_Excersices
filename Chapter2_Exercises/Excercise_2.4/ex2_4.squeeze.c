@@ -12,8 +12,8 @@ void squeeze2(char s1[], char s2[]);
 
 int main() {
 
-    char *s1 = "battle";
-    char *s2 = "le";
+    char s1[] = "battle";
+    char s2[] = "le";
 
     squeeze2(s1, s2);
     printf("after it gets sqeezed its %s", s1);
@@ -24,20 +24,22 @@ int main() {
  void squeeze2(char s1[], char s2[]) {
     int i;
     int j;
-    int k;
+    int k = 0;
     int found = 0;
 
     for(int i = 0; s1[i] != '\0'; i++) {
-        for(int j = 0; j != '\0'; j++) {
+        found = 0;
+        for(int j = 0; s2[j] != '\0'; j++) {
             if(s1[i] == s2[j]) {
                 found = 1;
                 break;
             }
+        } if(!found) {
+            s1[k] = s1[i];
+            k++;
         }
-        s1[k] = s1[i];
-        k++;
-    }
-
+    } 
+    
     s1[k] = '\0';
  }
 
