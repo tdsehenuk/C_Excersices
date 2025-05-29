@@ -25,17 +25,20 @@ int main() {
     int i;
     int j;
     int k;
+    int found = 0;
 
-    for(int i = 0; s[i] != '\0'; i++) {
-        for (int j = 0; s[j] != '\0'; j++) {
-            if(s1[i] != s2[j]) {
-                
+    for(int i = 0; s1[i] != '\0'; i++) {
+        for(int j = 0; j != '\0'; j++) {
+            if(s1[i] == s2[j]) {
+                found = 1;
+                break;
             }
         }
+        s1[k] = s1[i];
+        k++;
     }
 
-
-
+    s1[k] = '\0';
  }
 
 
