@@ -6,14 +6,12 @@ typedef struct {
     char emails[25];
 } Contact;
 
-
+Contact contact_List[25];
+int contact_counter = 0;
 
 int main () {
 
-
-    printf("welcome to a contact list app\n");
-    printf("here we store peoples nnumbers nmaes and emails ");
-
-
+    printf("Welcome to a contact list app!\n");
+    printf("Here we store peoples numbers names and emails!\n");
 
 }
