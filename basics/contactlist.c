@@ -1,7 +1,7 @@
 #include <stdio.h> 
 
 typedef struct {
-    int phone_number[10];
+    char phone_number[11];
     char names[25];
     char emails[25];
 } Contact;
@@ -54,4 +54,13 @@ int main () {
         }     
     }
 
+
+    return 0;
+}
+
+void add_contact() {
+    printf("\nPlease enter the following details:");
+    printf("\nThe Phone Number:");
+    
+    
 }
