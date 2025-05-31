@@ -40,7 +40,8 @@ int main () {
                 break;
 
             case 3:
-                printf("You selected choice 3!\n");
+                printf("You selected to edit a contact!\n");
+                edit_contact();
                 break;
 
             case 4:
@@ -54,7 +55,7 @@ int main () {
                 break;
 
             case 6:
-                printf("You selected choice 6!\n");
+                printf("You selected choice to leave the app!\n");
                 return 0;
 
             default:
@@ -122,8 +123,7 @@ void delete_contact() {
         }
     printf("Contact deleted successfully.\n");
     contact_counter--;
-}
-    
+}   
 
 void search_contact() {
     char name[30];
@@ -145,4 +145,47 @@ void search_contact() {
         } 
     }
         
+}
+
+void edit_contact() {
+
+    int edit;
+    while (1) { //loop until valid number is gotten 
+        printf("please enter what index you would like to edit: ");
+        scanf("%d", &edit);
+        if(contact_counter == 0) {
+            printf("The list is empty! Nothing to delete here.");
+        } else if(edit >= 0 && edit <= contact_counter) break;
+    }
+
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
+        char buffer[30];
+
+        printf("Editing contact at index %d.\n", edit);
+        printf("Leave blank and press enter to skip editing a field.\n");
+
+        printf("Current name: %s\nNew name: ", contact_list[edit].name);
+        fgets(buffer, sizeof(buffer), stdin);
+        buffer[strcspn(buffer, "\n")] = '\0';
+        if (strlen(buffer) > 0) {
+            strcpy(contact_list[edit].name, buffer);
+        }
+
+        printf("Current email: %s\nNew email: ", contact_list[edit].email);
+        fgets(buffer, sizeof(buffer), stdin);
+        buffer[strcspn(buffer, "\n")] = '\0';
+        if (strlen(buffer) > 0) {
+            strcpy(contact_list[edit].email, buffer);
+        }
+
+        printf("Current phone number: %s\nNew phone number: ", contact_list[edit].phone_number);
+        fgets(buffer, sizeof(buffer), stdin);
+        buffer[strcspn(buffer, "\n")] = '\0';
+        if (strlen(buffer) > 0) {
+            strcpy(contact_list[edit].phone_number, buffer);
+        }
+
+        printf("Contact updated successfully.\n");
 }
