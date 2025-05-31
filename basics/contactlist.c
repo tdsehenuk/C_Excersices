@@ -49,7 +49,8 @@ int main () {
                 break;
 
              case 5:
-                printf("You selected choice 5!\n");
+                printf("You selected to search for a contact!\n");
+                search_contact();
                 break;
 
             case 6:
@@ -107,7 +108,7 @@ void show_contacts() {
 void delete_contact() {
     int index_delete;
     while (1) { //loop until valid number is gotten 
-        printf("please enter what index you would like to delete");
+        printf("please enter what index you would like to delete: ");
         scanf("%d", &index_delete);
         if(contact_counter == 0) {
             printf("The list is empty! Nothing to delete here.");
@@ -124,3 +125,24 @@ void delete_contact() {
 }
     
 
+void search_contact() {
+    char name[30];
+    int c = 0;
+    while ((c = getchar()) != '\n' && c != EOF);
+
+    printf("please enter who you would like to contact: ");
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = '\0';  // Remove newline
+
+
+    for(int i = 0; i < contact_counter; i++) {
+        if(strcmp(contact_list[i].name, name) == 0) {
+            printf("Contact found!\n");
+            printf("Name: %s\n", contact_list[i].name);
+            printf("Email: %s\n", contact_list[i].email);
+            printf("Phone Number: %s\n", contact_list[i].phone_number);
+            break;
+        } 
+    }
+        
+}
