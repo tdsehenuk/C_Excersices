@@ -1,9 +1,9 @@
 #include <stdio.h> 
-
+#include <string.h>
 typedef struct {
     char phone_number[11];
-    char names[25];
-    char emails[25];
+    char name[25];
+    char email[25];
 } Contact;
 
 Contact contact_list[25];
@@ -19,15 +19,20 @@ int main () {
     printf("Welcome to a contact list app!\n");
     printf("Here we store peoples numbers names and emails!\n");
     printf("Here is what the app can do. Please select a choice:\n");
-    printf("1.)Add a Contact\n2.)Show all Contacts\n3.)Edit a Contact\n4.)Delete Contact\n5.)Search for Contact\n6.)Quit!\n");
+    printf("1.)Add a Contact\n2.)Show all Contacts\n3.)Edit a Contact\n4.)Delete Contact\n5.)Search for Contact\n6.)Quit!\n\n");
 
     while(1) {
+
+    printf("Welcome back to the menu. Please select a choice:\n");
+    printf("1.)Add a Contact\n2.)Show all Contacts\n3.)Edit a Contact\n4.)Delete Contact\n5.)Search for Contact\n6.)Quit!\n\n");
     int choice = 0;
     scanf("%d", &choice);
         switch (choice) {
             case 1:
-                printf("You selected choice 1\n");
+                printf("You selected to add a contact!\n");
+                add_contact();
                 break;
+
 
             case 2:
                 printf("You selected choice 2!\n");
@@ -59,8 +64,28 @@ int main () {
 }
 
 void add_contact() {
-    printf("\nPlease enter the following details:");
-    printf("\nThe Phone Number:");
+
+    char buffer[30]; 
+
+    //clears the input buffer (newline char)
+    int c = 0;
+    while ((c = getchar()) != '\n' && c != EOF);
     
-    
+    //sctcspn deletes newline and adds null terminator as the last value!
+    printf("The Phone Number:");
+    fgets(buffer, sizeof(buffer), stdin);
+    buffer[strcspn(buffer, "\n")] = '\0';
+    strcpy(contact_list[contact_counter].phone_number, buffer);
+
+    printf("The email address: ");
+    fgets(buffer, sizeof(buffer), stdin); 
+    buffer[strcspn(buffer, "\n")] = '\0';
+    strcpy(contact_list[contact_counter].email, buffer);
+
+    printf("The name: ");
+    fgets(buffer, sizeof(buffer), stdin);
+    buffer[strcspn(buffer, "\n")] = '\0';
+    strcpy(contact_list[contact_counter].name, buffer);
+
+    contact_counter++;
 }
