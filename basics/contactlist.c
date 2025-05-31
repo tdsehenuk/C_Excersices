@@ -35,7 +35,8 @@ int main () {
 
 
             case 2:
-                printf("You selected choice 2!\n");
+                printf("You selected to print all contacts!\n");
+                show_contacts();
                 break;
 
             case 3:
@@ -65,6 +66,7 @@ int main () {
 
 void add_contact() {
 
+
     char buffer[30]; 
 
     //clears the input buffer (newline char)
@@ -88,4 +90,13 @@ void add_contact() {
     strcpy(contact_list[contact_counter].name, buffer);
 
     contact_counter++;
+}
+
+void show_contacts() {
+    for(int i = 0; i < contact_counter; i++) {
+        printf("Name: %s\n", contact_list[i].name);
+        printf("Email: %s\n", contact_list[i].email);
+        printf("Number: %s\n", contact_list[i].phone_number);
+        printf("--------------\n");
+    }
 }
