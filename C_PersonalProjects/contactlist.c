@@ -107,15 +107,25 @@ void show_contacts() {
 }
 
 void delete_contact() {
+
+    show_contacts(); 
+    char confirm;
     int index_delete;
     while (1) { //loop until valid number is gotten 
         printf("please enter what index you would like to delete: ");
         scanf("%d", &index_delete);
         if(contact_counter == 0) {
             printf("The list is empty! Nothing to delete here.");
-        } else if(index_delete >= 1 && index_delete <= contact_counter) break;
-
+        } else if(index_delete >= 0 && index_delete < contact_counter) break;
+    
         
+    }
+
+    printf("Are you sure you want to delete contact %d? (y/n): ", index_delete);
+    scanf(" %c", &confirm);
+    if (confirm != 'y' && confirm != 'Y') {
+        printf("Delete cancelled.\n");
+        return;  // cancel delete
     }
 
     for( ; index_delete < contact_counter - 1; index_delete++) {
@@ -155,7 +165,7 @@ void edit_contact() {
         scanf("%d", &edit);
         if(contact_counter == 0) {
             printf("The list is empty! Nothing to delete here.");
-        } else if(edit >= 0 && edit <= contact_counter) break;
+        } else if(edit >= 0 && edit < contact_counter) break;
     }
 
     int c;
